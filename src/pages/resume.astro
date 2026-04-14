@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+
+const experience = [
+  {
+    role: "Senior Business Analyst",
+    company: "CertifyOS",
+    period: "Apr 2024 – Present",
+    bullets: [
+      "Designed credentialing volume forecasting models and KPI frameworks on millions of provider records in BigQuery and Looker, reducing onboarding delays by ~30% and improving SLA compliance from 95% to 99%.",
+      "Eliminated 60% of manual reporting overhead across 5+ product lines by engineering automated ETL pipelines and Looker dashboards, freeing ~40-60 analyst hours per week.",
+      "Built real-time operational monitoring tools and delay-prediction models using Python and SQL on millions of records.",
+      "Translated product adoption metrics and SLA data into executive-facing dashboards, informing 3+ product roadmap decisions per quarter.",
+    ],
+  },
+  {
+    role: "Analyst",
+    company: "CertifyOS",
+    period: "Feb 2023 – Mar 2024",
+    bullets: [
+      "Improved NPI attribution accuracy by 10% across millions of provider records by building an NLP pipeline using spaCy and Hugging Face.",
+      "Boosted data accuracy by 50% across healthcare provider datasets by engineering automated cleaning, deduplication, and extraction pipelines.",
+      "Expanded platform provider coverage by 50% for Nurse and Mental Health categories by deploying automated ingestion pipelines for third-party datasets.",
+      "Built scalable data products and provider category models on millions of records, improving processing efficiency by 50%.",
+    ],
+  },
+  {
+    role: "Analyst",
+    company: "Deloitte USI",
+    period: "Jun 2022 – Jan 2023",
+    bullets: [
+      "Improved database query performance by 5% for a healthcare client by optimizing SQL schema design and completing 6 new backend features in .NET C#.",
+    ],
+  },
+  {
+    role: "Research Assistant",
+    company: "National Tsing Hua University, Taiwan",
+    period: "Jun 2021 – Apr 2022",
+    bullets: [
+      "Contributed to astrophysical turbulence research on AGN simulation datasets by analyzing velocity structure functions using Python's YT Project, supervised by Dr. Hsiang-Yi Karen Yang.",
+    ],
+  },
+  {
+    role: "Research Intern",
+    company: "University of Hawaii",
+    period: "Jun 2021 – Dec 2021",
+    bullets: [
+      "Reduced n-body cosmological simulation runtime by 50+ hours per dataset by developing a deep neural network in PyTorch, with a reverse displacement field algorithm optimizing resource usage by 40%.",
+    ],
+  },
+];
+
+const skillGroups = [
+  {
+    label: "Programming",
+    skills: ["Python", "SQL", "R", "C#", "Java"],
+  },
+  {
+    label: "ML & AI",
+    skills: ["PyTorch", "TensorFlow", "Scikit-learn", "Transformers", "LLMs", "LangChain", "spaCy", "Hugging Face"],
+  },
+  {
+    label: "Data & Analytics",
+    skills: ["Statistical Analysis", "Predictive Analytics", "A/B Testing", "Time Series", "Bayesian Analysis", "EDA"],
+  },
+  {
+    label: "Data Engineering",
+    skills: ["BigQuery", "ETL Pipelines", "Data Modeling", "Data Warehousing", "Looker", "Tableau"],
+  },
+  {
+    label: "Cloud & Tools",
+    skills: ["GCP", "Git", "Docker", "Jupyter"],
+  },
+];
+---
+
+<BaseLayout title="Resume" description="Resume of Pratik Dongre — Data Scientist and ML Researcher.">
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+      <SectionHeading
+        title="Resume"
+        subtitle="Data Scientist and ML Researcher with 3+ years building predictive models, NLP pipelines, and analytics systems."
+      />
+      <a
+        href="/resume.pdf"
+        download
+        class="shrink-0 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-500 transition-colors"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Experience -->
+    <div class="mb-16">
+      <h2 class="text-xl font-semibold text-white mb-8">Experience</h2>
+      <div class="relative border-l border-slate-800 ml-3 space-y-10">
+        {experience.map(({ role, company, period, bullets }) => (
+          <div class="relative pl-8">
+            <div class="absolute -left-[7px] top-1 h-3.5 w-3.5 rounded-full border-2 border-indigo-500 bg-slate-950" />
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
+              <div>
+                <h3 class="text-base font-semibold text-white">{role}</h3>
+                <p class="text-sm text-indigo-400">{company}</p>
+              </div>
+              <span class="text-xs text-slate-500 font-mono shrink-0">{period}</span>
+            </div>
+            <ul class="space-y-2">
+              {bullets.map((b) => (
+                <li class="text-sm text-slate-300 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-slate-600">
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="mb-16">
+      <h2 class="text-xl font-semibold text-white mb-6">Education</h2>
+      <div class="rounded-xl border border-slate-800 bg-slate-900/50 p-6">
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+          <div>
+            <h3 class="text-base font-semibold text-white">B.Tech in Computer Science and Engineering</h3>
+            <p class="text-sm text-indigo-400">Indian Institute of Information Technology, Nagpur</p>
+          </div>
+          <span class="text-xs text-slate-500 font-mono shrink-0">May 2022</span>
+        </div>
+        <p class="mt-3 text-sm text-slate-400">
+          Final Year Project: Baryon density, Dark Matter density extraction, and Isotropy analysis of CMB using deep learning.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div>
+      <h2 class="text-xl font-semibold text-white mb-6">Skills</h2>
+      <div class="space-y-5">
+        {skillGroups.map(({ label, skills }) => (
+          <div>
+            <h3 class="text-xs uppercase tracking-wider text-slate-500 mb-2.5">{label}</h3>
+            <div class="flex flex-wrap gap-2">
+              {skills.map((s) => (
+                <span class="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300 ring-1 ring-inset ring-slate-700">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

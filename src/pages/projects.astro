@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<BaseLayout title="Projects" description="Data science and ML engineering projects by Pratik Dongre.">
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <SectionHeading
+      title="Projects"
+      subtitle="Production data systems and applied ML — from NLP pipelines to trend intelligence."
+    />
+
+    <div class="space-y-8">
+      <!-- Fashion Trend Intelligence -->
+      <ProjectCard
+        title="D2C Fashion Trend Intelligence Pipeline"
+        description="A production-grade data science pipeline that merges unstructured social signals (23K+ customer reviews, Google Trends) with structured sell-through data (31M+ H&M transactions) to generate actionable trend intelligence for fashion brands. Features three fine-tuned/applied transformer models: LoRA-tuned RoBERTa for sentiment, BART zero-shot for style tribe classification, and MiniLM + HDBSCAN for semantic trend clustering. Outputs a composite trend score with quadrant classification (HOT / EMERGING / FADING / COLD) and an interactive Plotly dashboard."
+        tags={["PyTorch", "Transformers", "LoRA", "HDBSCAN", "UMAP", "Plotly", "pandas", "Google Trends"]}
+        links={[
+          { label: "GitHub", href: "https://github.com/cosmic-ash/fashion-trend-intelligence" },
+        ]}
+      >
+        <div class="mt-5 rounded-lg bg-slate-800/50 p-4 font-mono text-xs text-slate-400 overflow-x-auto">
+          <pre class="whitespace-pre">Score = 0.25 x sell_through_velocity
+     + 0.25 x sentiment_lift         (fine-tuned RoBERTa)
+     + 0.20 x trend_momentum         (Google Trends slope)
+     + 0.15 x style_buzz             (BART zero-shot)
+     + 0.15 x cluster_strength       (HDBSCAN density)</pre>
+        </div>
+      </ProjectCard>
+
+      <!-- Data Engineering at CertifyOS -->
+      <ProjectCard
+        title="Healthcare Data Platform — CertifyOS"
+        description="Built the analytics backbone for a healthcare credentialing platform handling millions of provider records. Designed credentialing volume forecasting models and KPI frameworks in BigQuery and Looker, reducing provider onboarding delays by ~30% and improving SLA compliance from 95% to 99%. Engineered automated ETL pipelines that eliminated 60% of manual reporting overhead across 5+ product lines, freeing ~40-60 analyst hours per week."
+        tags={["BigQuery", "Python", "SQL", "Looker", "ETL", "GCP", "Predictive Analytics"]}
+      />
+
+      <!-- NLP Pipeline -->
+      <ProjectCard
+        title="NLP Pipeline for Provider Record Matching"
+        description="Built an NLP-based name matching system using spaCy and Hugging Face that improved NPI attribution accuracy by 10% across millions of healthcare provider records. The pipeline automated cleaning, deduplication, and extraction, cutting manual credentialing processing time by 70% and boosting overall data accuracy by 50%."
+        tags={["spaCy", "Hugging Face", "NLP", "Python", "SQL", "Healthcare"]}
+      />
+    </div>
+  </section>
+</BaseLayout>
